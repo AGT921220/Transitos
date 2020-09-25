@@ -27,6 +27,18 @@ Route::post('graficas/productos', 'GraficasController@productos');
 //PERFIL DE USUARIO
 Route::get('/dashboard/perfil', 'UsersController@perfil')->name('ver_perfil');
 
+//MOVIMIENTOS
+Route::get('/movimientos','MovimientosController@ver_movimientos')->name('ver_movimientos');
+Route::get('/movimientos/Agregar','MovimientosController@agregar_movimiento')->name('agregar_movimiento');
+
+//MOVIMIENTOS AJAX
+Route::post('/ajax/movimientos/cargar_horas','Ajax\MovimientosController@ajax_cargar_horas');
+
+
+
+
+
+/*
 //EMPLEADOS
 Route::get('dashboard/empleados', 'UsersController@empleados')->name('ver_empleados');
 Route::get('/dashboard/empleados/nuevo', 'UsersController@nuevo_empleado')->name('agregar_empleado');
@@ -46,5 +58,6 @@ Route::post('/dashboard/firma-digital/nueva', 'FirmaDigitalController@guardar_fi
 Route::get('/dashboard/exportar_excel', 'ExportarExcelController@index')->name('exportar_excel');
 Route::get('/dashboard/exportar_excel/users', 'ExportarExcelController@exportar_users_excel')->name('exportar_users_excel');
 Route::get('/dashboard/exportar_excel/productos', 'ExportarExcelController@exportar_products_excel')->name('exportar_products_excel');
-/*SECCIONES DEL PANEL DEL ADMINISTRADOR*/
 
+
+*/

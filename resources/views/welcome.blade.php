@@ -53,13 +53,13 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;">
-                    <h4>Usuario de Prueba</h4>
+                    <h4>ERP</h4>
                     
                     <br>
 
-                    <p><small>Correo:   </small>demo@agsoftweb.com.mx</p>
+                    <p><small>   </small>Total Cargo Transportes</p>
                     <br>
-                    <p><small>Contraseña:   </small>demo12345</p>
+                    <p><small>   </small>Todos los derechos reservados</p>
 
                     <br>
 
