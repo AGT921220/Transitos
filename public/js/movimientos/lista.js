@@ -28,40 +28,40 @@ table.buttons().container()
                 console.log(response.success);
 
                 Swal.fire({
-                    title: '<strong>Actualizar Horas</strong>',
+                    title: '<strong>Actualizando horas de viaje</strong>',
                     icon: 'info',
                     html:
-                    '<div class="form-group"><label >Llegada Cliente</label>'+
+                    '<div class="form-group"><label >Llegada cliente</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRALLEGADACTE+'" class="form-control mb-2 llegada_cliente" /></div>'+
 
-                    '<div class="form-group"><label >Carga Cliente</label>'+
+                    '<div class="form-group"><label >Carga cliente</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRACARGA+'" class="form-control mb-2 carga_cliente" /></div>'+
 
-                    '<div class="form-group"><label >Salida Cliente</label>'+
+                    '<div class="form-group"><label >Salida cliente</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRASALIDACTE+'" class="form-control mb-2 salida_cliente" /></div>'+
 
-                    '<div class="form-group"><label >Carga Documentos</label>'+
+                    '<div class="form-group"><label >Carga documentos</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRAENTREGADOCTOS+'" class="form-control mb-2 hora_documentos" /></div>'+
 
-                    '<div class="form-group"><label >Llegada Fila</label>'+
+                    '<div class="form-group"><label >Llegada fila</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRALLEGADAFILA+'" class="form-control mb-2 llegada_fila" /></div>'+
 
-                    '<div class="form-group"><label >Hora Inspeccion</label>'+
+                    '<div class="form-group"><label >Inspección K9</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRAINSPECCION+'" class="form-control mb-2 hora_inspeccion" /></div>'+
 
-                    '<div class="form-group"><label >Hora Mod MEX</label>'+
+                    '<div class="form-group"><label >Módulo México</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRAMODULOMEX+'" class="form-control mb-2 hora_mod_mex" /></div>'+
 
-                    '<div class="form-group"><label >Hora Mod MEX Salida</label>'+
+                    '<div class="form-group"><label >Módulo México salida</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRAMODULOMEXSALIDA+'" class="form-control mb-2 hora_mod_mex_salida" /></div>'+
 
-                    '<div class="form-group"><label >Hora Mod USA</label>'+
+                    '<div class="form-group"><label >Módulo Usa</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRAMODULOUSA+'" class="form-control mb-2 hora_mod_usa" /></div>'+
 
-                    '<div class="form-group"><label >Hora Mod USA Salida</label>'+
+                    '<div class="form-group"><label >Módulo Usa salida</label>'+
                     '<input type="text" name="fecha" placeholder="Fecha" value="'+response.success.HRAMODULOUSASALIDA+'" class="form-control mb-2 hora_mod_usa_salida" /></div>'+
 
-                    '<div class="form-group"><label >Entrega Cliente</label>'+
+                    '<div class="form-group"><label >Entrega cliente</label>'+
                     '<input type="time" id="appt" name="appt" min="09:00" max="18:00 placeholder="Fecha" value="'+response.success.HRAENTREGACTE+'" class="form-control mb-2 entrega_cliente" /></div>'
 
                     ,
@@ -69,7 +69,7 @@ table.buttons().container()
                     showCancelButton: true,
                     focusConfirm: false,
                     confirmButtonText:
-                      'Actualizar!',
+                      'Procesar',
                     confirmButtonAriaLabel: 'Actualizar!',
                     cancelButtonText:
                       'Cancelar',
