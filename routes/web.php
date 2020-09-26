@@ -33,6 +33,7 @@ Route::get('/movimientos/Agregar','MovimientosController@agregar_movimiento')->n
 
 //MOVIMIENTOS AJAX
 Route::post('/ajax/movimientos/cargar_horas','Ajax\MovimientosController@ajax_cargar_horas');
+Route::post('/ajax/movimientos/actualizar/horas','Ajax\MovimientosController@ajax_actualizar_horas');
 
 
 

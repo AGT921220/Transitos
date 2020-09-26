@@ -14,4 +14,9 @@ class MovimientosController extends Controller
         $movimiento = Movimiento::where('REGMOVTRAF',$request->id)->first();
         return response()->json(['success' => $movimiento]);
     }
+
+    public function ajax_actualizar_horas(Request $request){
+        return response()->json(['success' => $request->horas]);
+
+    }
 }
