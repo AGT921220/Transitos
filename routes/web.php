@@ -29,9 +29,13 @@ Route::get('/dashboard/perfil', 'UsersController@perfil')->name('ver_perfil');
 
 //MOVIMIENTOS
 Route::get('/movimientos','MovimientosController@ver_movimientos')->name('ver_movimientos');
-Route::get('/movimientos/Agregar','MovimientosController@agregar_movimiento')->name('agregar_movimiento');
+Route::get('/movimientos/agregar','MovimientosController@agregar_movimiento')->name('agregar_movimiento');
+Route::post('/movimientos/agregar','MovimientosController@guardar_movimiento')->name('guardar_movimiento');
+
+
 
 //MOVIMIENTOS AJAX
+Route::post('/ajax/movimientos/actualizar/tabla','Ajax\MovimientosController@ajax_actualizar_tabla');
 Route::post('/ajax/movimientos/cargar_horas','Ajax\MovimientosController@ajax_cargar_horas');
 Route::post('/ajax/movimientos/actualizar/horas','Ajax\MovimientosController@ajax_actualizar_horas');
 

@@ -20,19 +20,12 @@
                         <span>Lista de Movimientos</span>
                         <thead>
                             <tr>
-                            <th scope="col">Acción a realizar</th>
-                            <th scope="col">Movimiento</th>
-                            <th scope="col">Estatus</th>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Carta porte</th>
-                            <th scope="col">Carta porte física</th>
-                            <th scope="col">Cruce</th>
-                            <th scope="col">Cliente</th>
-                            <th scope="col">Unidad</th>
-                            <th scope="col">Ruta</th>
-                            <th scope="col">Remitente</th>
-                            <th scope="col">Destino</th>
-                            <th scope="col">Chofer</th>
+
+
+
+
+
+
                             <th scope="col">Caja</th>
                             <th scope="col">Comisión</th>
                             <th scope="col">Hora llegada cliente</th>
@@ -63,18 +56,10 @@
                                 </td>
 
 
-                                <td>{{ $item->REGMOVTRAF }}</td>
-                                <td>{{ $item->DESCRIPCION }} </td>
-                                <td>{{ $item->FECHA }}</td>
-                                <td>{{ $item->NOCARTAPORTE }}</td>
-                                <td>{{ ( $item->CARTAPORTEFISICA) ? 'Si' : 'No' }}</td>
-                                <td>{{ $item->TIPOCRUCES }} </td>
-                                <td>{{ $item->IDCLIENTE }} /{{ $item->NOMBRECLIENTE }} </td>
-                                <td>{{ $item->numerounidad }}</td>
-                                <td>{{ $item->ruta }} </td>
-                                <td>{{ $item->REMITENTE }} </td>
-                                <td>{{ $item->DESTINO }} </td>
-                                <td>{{ $item->IDCHOFER }} /{{ $item->NOMBRECHOFER }} </td>
+
+}
+
+
                                 <td>{{ $item->NOCAJA }} </td>
                                 <td>{{ $item->COMISIONMOV }} </td>
                                 <td>{{ $item->HRALLEGADACTE }} </td>

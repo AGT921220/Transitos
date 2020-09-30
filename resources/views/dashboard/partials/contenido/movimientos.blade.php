@@ -1,6 +1,6 @@
 <li class="{{ ( Route::is('ver_movimientos','agregar_movimiento')) ? 'active' : '' }} treeview">
     <a href="#">
-      <i class="fa fa-suitcase"></i> 
+      <i class="fa fa-suitcase"></i>
       <span>Movimientos</span>
       <span class="pull-right-container">
         <i class="fa fa-angle-left pull-right"></i>

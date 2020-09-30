@@ -12,15 +12,45 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('agregar_movimiento') }}" class="btn btn-success" >Agregar movimiento</a>
-                </div>
-                <div class="card-body" style="overflow-x:scroll" >            <!-- Scroll -->
+
+                <div class="card-header" style="    display: flex;
+                justify-content: space-between;">
+
+                    <a href="{{ route('agregar_movimiento') }}" class="btn btn-success"  style="align-self: center;">Agregar movimiento</a>
+
+
+
+
+                    <input type="date" style="display:none;"  name="rango_fechas"  value="{{date('Y-m-d')}}">
+
+                    <div class="form-group" style="display: flex; flex-direction:column; justify-content:center; text-align:center;">
+                        <label>Fecha inicio</label>
+                        <input type="date"  class="rango_fechas_input date_start"  value="{{date('Y-m-d')}}">
+                    </div>
+
+                    <div class="form-group" style="display: flex; flex-direction:column; justify-content:center; text-align:center;">
+                        <label>Fecha Fin</label>
+                    <input type="date"  class="rango_fechas_input date_end"  value="{{date('Y-m-d')}}">
+                    </div>
+
+                    <p style="display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    align-self: center;
+                    margin: 0;">
+                        <a href="#" class="btn btn-info btn-lg refresh_table">
+                          <span class="glyphicon glyphicon-refresh"></span> Actualizar
+                        </a>
+                      </p>
+            </div>
+                <div class="card-body table_container" style="overflow-x:scroll" >            <!-- Scroll -->
+
                     <table class="table table-striped table-bordered" id="table_movimientos"  style="overflow-x:scroll" >
                         <span>Lista de Movimientos</span>
                         <thead>
                             <tr>
-                            <th scope="col">Acción a realizar</th>
+
+                            <th scope="col">Acción</th>
                             <th scope="col">Movimiento</th>
                             <th scope="col">Estatus</th>
                             <th scope="col">Fecha</th>
@@ -49,52 +79,14 @@
                             <th scope="col">Sello 1</th>
                             <th scope="col">Sello 2</th>
                             <th scope="col">Sello 3</th>
+                            <th scope="col">Compartido</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($movimientos as $item)
-                            <tr>
-                                <td>
-                                    @if($item->DESCRIPCION!='TERMINADO')
-                                <button type="button" class="actualizar_horas btn btn btn-warning" data-id="{{$item->REGMOVTRAF}}">Actualizar</button>
-                                    @else
 
-                                    @endif
-                                </td>
-
-
-                                <td>{{ $item->REGMOVTRAF }}</td>
-                                <td>{{ $item->DESCRIPCION }} </td>
-                                <td>{{ $item->FECHA }}</td>
-                                <td>{{ $item->NOCARTAPORTE }}</td>
-                                <td>{{ ( $item->CARTAPORTEFISICA) ? 'Si' : 'No' }}</td>
-                                <td>{{ $item->TIPOCRUCES }} </td>
-                                <td>{{ $item->IDCLIENTE }} /{{ $item->NOMBRECLIENTE }} </td>
-                                <td>{{ $item->numerounidad }}</td>
-                                <td>{{ $item->ruta }} </td>
-                                <td>{{ $item->REMITENTE }} </td>
-                                <td>{{ $item->DESTINO }} </td>
-                                <td>{{ $item->IDCHOFER }} /{{ $item->NOMBRECHOFER }} </td>
-                                <td>{{ $item->NOCAJA }} </td>
-                                <td>{{ $item->COMISIONMOV }} </td>
-                                <td>{{ $item->HRALLEGADACTE }} </td>
-                                <td>{{ $item->HRACARGA }} </td>
-                                <td>{{ $item->HRASALIDACTE }} </td>
-                                <td>{{ $item->HRAENTREGADOCTOS }} </td>
-                                <td>{{ $item->HRAINSPECCION }} </td>
-                                <td>{{ $item->HRALLEGADAFILA }} </td>
-                                <td>{{ $item->HRAMODULOMEX }} </td>
-                                <td>{{ $item->HRAMODULOMEXSALIDA }} </td>
-                                <td>{{ $item->HRAMODULOUSA }} </td>
-                                <td>{{ $item->HRAMODULOUSASALIDA }} </td>
-                                <td>{{ $item->HRAENTREGACTE }} </td>
-                                <td>{{ $item->SELLO1 }} </td>
-                                <td>{{ $item->SELLO2 }} </td>
-                                <td>{{ $item->SELLO3 }} </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
                     </table>
+
+
+
 
                 {{-- fin card body --}}
                 </div>
@@ -102,7 +94,7 @@
               <!--   <a href="{{ route('agregar_movimiento') }}" class="btn btn-success" >Agregar movimiento</a> -->
              <!--    <a type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAgregar">Agregar movimiento</a> -->
             </div>
-
+            <input type="hidden" class="id_movimiento_swal" >
         </div>
 
     </div>
@@ -110,4 +102,11 @@
 
 <script src="{{ asset('js/movimientos/lista.js') }}"></script>
 
+
+<style>
+
+    .actualizar_group_values input{
+        text-align: center !important;
+    }
+</style>
 @endsection

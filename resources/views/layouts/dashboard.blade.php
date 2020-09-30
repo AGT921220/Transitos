@@ -6,8 +6,14 @@
   <title>Total Cargo | Plataforma</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
+  <!--
+
+
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  -->
+  <link rel="stylesheet" href="{{asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
+  <link rel="stylesheet" href="{{asset('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
@@ -22,11 +28,6 @@
   <!-- jvectormap -->
   <link rel="stylesheet" href="{{asset('bower_components/jvectormap/jquery-jvectormap.css')}}">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="{{asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{asset('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
 
 <!--SCRIPT ANALYTICS-->
 @include('dashboard.partials.analytics')
@@ -65,7 +66,6 @@
 <!-- daterangepicker -->
 <script src="{{ asset('bower_components/moment/min/moment.min.js')}}"></script>
 <script src="{{ asset('bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-<!-- datepicker -->
 <script src="{{ asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
@@ -79,11 +79,11 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.min.js')}}"></script>
 
-
+<!-- COMENTA LO DE BOOTSTRAP CSS, PERO RESPALDA ESTE ARCHIVO -->
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
@@ -104,9 +104,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>W</span>
+      <span class="logo-mini"><b>TTC</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Nombre de ERP </b></span>
+      <span class="logo-lg"><b>TTC ERP </b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -148,21 +148,328 @@
       <!-- Búsqueda -->
 
       <!-- Menu Principal -->
-      <!-- Modulos -->
+
+
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Menú</li>
-          <li class="header">Operaciones</li>
+        <li class="header"></li>
+            <li class="treeview menu-open">
+                <a href="#">
+                    <i class="fa fa-book"></i><span>Utilerías</span>
+                    <span class="pull-right-container">
+                        <i class="fa  fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu menu-open treeview-menu-visible">
 
               @include('dashboard.partials.contenido.movimientos')
+                </ul>
+            </li>
+        </li>
+    </ul>
+    <!--Provisional-->
 
+<<!--Catálogos-->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MENÚ</li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-book"></i> <span>Mis Catálogos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> País</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Estados</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Ciudades</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Colonias</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Código postal</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Empleados</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Puestos</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Clientes</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Empresas</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Moneda</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Familia</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Fabricante</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Unidad de medida</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Proveedor</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Tipo de traslado</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Tipo unidad</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Unidad</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Tipo combustible</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Código SAT</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Subcontratados</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Encargado de recibo</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Encargado de yarda</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Sellos</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Inbon</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Casetas</a></li>
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> Yardas</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Rutas</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Servicios</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Llantas</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Incidencias</a></li>
 
+          </ul>
         </li>
 
-      </ul>
-      <!-- Modulos -->
-      <!-- Menu Principal -->
+        <!--Operaciones-->
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-truck"></i> <span>Mis Operaciones</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+
+              <li class="treeview">
+                <a href="#"><i class="fa fa-circle-o"></i> Cotizaciones
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> Nueva
+                          <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+                        </a>
+                        <ul class="treeview-menu">
+                          <li><a href="#"><i class="fa fa-circle-o"></i> Directo</a></li>
+                          <li><a href="#"><i class="fa fa-circle-o"></i> Consolidado</a></li>
+                        </ul>
+                      </li>
+                  <li><a href="#"><i class="fa fa-circle-o"></i> Corregir</a></li>
+                  <li><a href="#"><i class="fa fa-circle-o"></i> Aprobar</a></li>
+                  <li><a href="#"><i class="fa fa-circle-o"></i> Cancelar</a></li>
+
+                </ul>
+              </li>
 
 
+              <li class="treeview">
+                <a href="#"><i class="fa fa-circle-o"></i> Traslados
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="treeview">
+
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Completar información</a></li>
+                          <li><a href="#"><i class="fa fa-circle-o"></i> Iniciar viaje</a></li>
+                          <li><a href="#"><i class="fa fa-circle-o"></i> Visualizar viaje</a></li>
+                          <li><a href="#"><i class="fa fa-circle-o"></i> Cancelar</a></li>
+                        </ul>
+                      </li>
+                  <li><a href="#"><i class="fa fa-circle-o"></i> Corregir</a></li>
+                  <li><a href="#"><i class="fa fa-circle-o"></i> Aprobar</a></li>
+                  <li><a href="#"><i class="fa fa-circle-o"></i> Cancelar</a></li>
+
+                </ul>
+              </li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Carta porte</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Incidencias</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Transporte de personal</a></li>
+            </ul>
+          </li>
+
+
+<!--Mis gastos-->
+<li class="treeview">
+    <a href="#">
+      <i class="fa fa-money"></i> <span>Mis Gastos</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="treeview">
+        <a href="#"><i class="fa fa-circle-o"></i> Compras
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-circle-o"></i> Insumos de oficina</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Refacciones</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Polizas de servicios</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Devoluciones</a></li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </li>
+<!--Mis finanzas-->
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-line-chart"></i>
+      <span>Mis Finanzas</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Inversiones</a></li>
+      <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Informes gerenciales</a></li>
+
+    </ul>
+  </li>
+<!--Mi administración-->
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-users"></i>
+      <span>Mi Administración</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Recursos humanos</a></li>
+      <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Caja chica</a></li>
+    </ul>
+  </li>
+<!--Mi contabilidad-->
+<li class="treeview">
+    <a href="#">
+      <i class="fa fa-calculator"></i>
+      <span>Mi Contabilidad</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Cfdi de traslado</a></li>
+      <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Cuentas por pagar</a></li>
+      <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Cuentas por cobrar</a></li>
+      <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Pagos</a></li>
+      <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Bancos</a></li>
+      <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Pago a conductores</a></li>
+      <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Activos fijos</a></li>
+      <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Contabilidad financiera</a></li>
+    </ul>
+  </li>
+
+
+<!--Mi taller -->
+<li class="treeview">
+    <a href="#">
+      <i class="fa fa-tachometer"></i> <span>Mi Taller</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="treeview">
+        <a href="#"><i class="fa fa-circle-o"></i> Reparaciones <span class="pull-right-container">
+            <a href="#"><i class="fa fa-circle-o"></i> Pedidos a proveedores <span class="pull-right-container">
+                <a href="#"><i class="fa fa-circle-o"></i> Contratos <span class="pull-right-container">
+        <a href="#"><i class="fa fa-circle-o"></i> Inventario
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-circle-o"></i> Recepción</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Consumos</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Traspasos</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </li>
+<!--Mi gestión de documentos-->
+<li class="treeview">
+    <a href="#">
+      <i class="fa fa-file"></i> <span>Mi Gestión Documentos</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="treeview">
+        <a href="#"><i class="fa fa-circle-o"></i> Safety
+          <span class="pull-right-container">
+          </span>
+        </a>
+
+      </li>
+
+    </ul>
+  </li>
+  <!-- Mi CRM -->
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-balance-scale"></i> <span>Mi CRM</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+  </li>
+  <!--Mi Power BI-->
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-area-chart"></i> <span>Mi Power BI</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="treeview">
+        <a href="#"><i class="fa fa-circle-o"></i> Safety
+          <span class="pull-right-container">
+          </span>
+        </a>
+
+      </li>
+
+    </ul>
+  </li>
+  <!--Mis Reportes-->
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-pie-chart"></i> <span>Mis Reportes</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="treeview">
+        <a href="#"><i class="fa fa-circle-o"></i> Safety
+          <span class="pull-right-container">
+          </span>
+        </a>
+
+      </li>
+
+    </ul>
+  </li>
+
+  <!--Mi configuración-->
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-cog"></i> <span>Mi Configuración</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+     </li>
+          <!-- Modulos -->
+      <!-- Menu Principal ***** -->
+
+<!--Salir del sistema-->
+<li class="treeview">
+    <a href="#">
+      <i class="fa fa-sign-out"></i> <span>Salir de TTC</span>
+      <span class="pull-right-container">
+
+      </span>
+    </a>
+     </li>
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -205,7 +512,7 @@
     <div class="pull-right hidden-xs">
 
     </div>
-    <strong>Copyright &copy; 2020 <a>Nombre de ERP</a>.</strong>  </footer>
+    <strong>Copyright &copy; 2020 <a>TTC ERP</a>.</strong>  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark" style="display: none;">

@@ -1,21 +1,66 @@
-
+//var table = $('#table_movimientos').DataTable();
 $( document ).ready(function() {
     console.log('Lista Movimientos');
+    $('input[name="rango_fechas"]').daterangepicker();
+    var tableData;
 
-    var table = $('#table_movimientos').DataTable( {
-        lengthChange: false,
-        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
-    } );
 
-    table.buttons().container()
-        .appendTo( '#table_movimientos_wrapper .col-md-6:eq(0)' );
+        Swal.fire(
+            'Traslados!',
+            'Cargando traslados!',
+            'info'
+          )
 
+          Swal.showLoading()
+        //Actualiza tabla
+        setTimeout(function(){
+            refresh_tabla_movimientos();
+         }, 3000);
+
+
+
+
+         $(document).on('click','.refresh_table', function (){
+            Swal.fire(
+                'Traslados!',
+                'Cargando traslados!',
+                'info'
+              )
+
+              Swal.showLoading()
+            //Actualiza tabla
+            setTimeout(function(){
+                refresh_tabla_movimientos();
+             }, 3000);
+
+        });
+
+
+
+$(document).on('change','.date_start,.date_end', function (){
+    var date_start =$('.date_start').val();
+    var date_end =$('.date_end').val();
+
+        Swal.fire(
+            'Traslados!',
+            'Cargando traslados!',
+            'info'
+          )
+
+          Swal.showLoading()
+        //Actualiza tabla
+        setTimeout(function(){
+            refresh_tabla_movimientos();
+         }, 3000);
+
+});
 
         $(document).on('click', '.actualizar_horas',  function(){
 
             var csrf_token = $('.csrf_token').val();
             var id =$(this).data('id');
+            console.log(id);
+            $('.id_movimiento_swal').val(id);
             $.ajax('/ajax/movimientos/cargar_horas', {
                 data: {
                     _token:csrf_token,
@@ -24,7 +69,7 @@ $( document ).ready(function() {
                 type: 'post',
                 dataType: 'json', // type of response data
                 success: function(response, status, xhr) { // success callback function
-
+                    console.log(response);
                     if(response.success.HRALLEGADACTE==null||response.success.HRALLEGADACTE=='N/A'||response.success.HRALLEGADACTE==''){response.success.HRALLEGADACTE='00:00'}
                     if(response.success.HRACARGA==null||response.success.HRACARGA=='N/A'||response.success.HRACARGA==''){response.success.HRACARGA='00:00'}
                     if(response.success.HRASALIDACTE==null||response.success.HRASALIDACTE=='N/A'||response.success.HRASALIDACTE==''){response.success.HRASALIDACTE='00:00'}
@@ -76,13 +121,13 @@ $( document ).ready(function() {
 
                         '<div class="form-group"><label >Entrega cliente</label>'+
                         '<input type="time" name="HRAENTREGACTE" placeholder="Fecha" value="'+response.success.HRAENTREGACTE+'" class="form-control mb-2 entrega_cliente" /></div>'+
-                        '</div>'
+                        '  </div>'
                         ,
                         showCloseButton: true,
                         showCancelButton: true,
                         focusConfirm: false,
                         confirmButtonText:
-                          'Procesar',
+                          'Actualizar',
                         confirmButtonAriaLabel: 'Actualizar!',
                         cancelButtonText:
                           'Cancelar',
@@ -97,8 +142,8 @@ $( document ).ready(function() {
                         inputs.each(function() {
                                 horas[this.name]=this.value;
                         });
-
-                        save_actualizar_fechas(horas);
+                        var id_mov = $('.id_movimiento_swal').val();
+                        save_actualizar_fechas(id_mov,horas);
 
                         } else  {
                           Swal.fire('Cancelado', '', 'info')
@@ -124,18 +169,32 @@ $( document ).ready(function() {
 
 
 
-    function save_actualizar_fechas(horas){
+    function save_actualizar_fechas(id_mov,horas){
 
         var csrf_token = $('.csrf_token').val();
+
+
 
         $.ajax('/ajax/movimientos/actualizar/horas', {
             data: {
             _token:csrf_token,
+            id_mov:id_mov,
              horas:horas},
             type: 'post',
             dataType: 'json', // type of response data
             success: function(response, status, xhr) { // success callback function
                 console.log(response);
+                Swal.fire(
+                    'Actualizando!',
+                    'Cargando Tabla!',
+                    'info'
+                  )
+
+                  Swal.showLoading()
+                //Actualiza tabla
+                setTimeout(function(){
+                    refresh_tabla_movimientos();
+                 }, 3000);
 
             },
             error: function(jqXhr, textStatus, errorMessage) { // error callback
@@ -153,3 +212,80 @@ $( document ).ready(function() {
 
 
     }
+
+
+
+
+    function refresh_tabla_movimientos(){
+        var csrf_token = $('.csrf_token').val();
+        var date_start =$('.date_start').val();
+        var date_end =$('.date_end').val();
+        $('.table_container').html('<table class="table table-striped table-bordered" id="table_movimientos" style="overflow-x:scroll" > <span>Lista de Movimientos</span> <thead> <tr> <th scope="col">Acción</th> <th scope="col">Movimiento</th> <th scope="col">Estatus</th> <th scope="col">Fecha</th> <th scope="col">Carta porte</th> <th scope="col">Carta porte física</th> <th scope="col">Cruce</th> <th scope="col">Cliente</th> <th scope="col">Unidad</th> <th scope="col">Ruta</th> <th scope="col">Remitente</th> <th scope="col">Destino</th> <th scope="col">Chofer</th> <th scope="col">Caja</th> <th scope="col">Comisión</th> <th scope="col">Hora llegada cliente</th> <th scope="col">Hora carga</th> <th scope="col">Hora salida cliente</th> <th scope="col">Hora entrega documentos</th> <th scope="col">Hora inspección</th> <th scope="col">Hora llegada fila</th> <th scope="col">Hora módulo Mex</th> <th scope="col">Hora módulo Mex Salida</th> <th scope="col">Hora módulo Usa</th> <th scope="col">Hora módulo Usa Salida</th> <th scope="col">Hora entrega cliente</th> <th scope="col">Sello 1</th> <th scope="col">Sello 2</th> <th scope="col">Sello 3</th><th scope="col">Compartido</th> </tr> </thead> </table>');
+
+        $.ajax('/ajax/movimientos/actualizar/tabla', {
+            data: {_token:csrf_token,date_start:date_start,date_end:date_end},
+            type: 'post',
+            dataType: 'json', // type of response data
+            success: function(response, status, xhr) { // success callback function
+console.log('test2');
+                tableData = response.data;
+                //$('#table_movimientos').DataTable();
+                $('#table_movimientos').DataTable({
+                    pageLength: 25,
+                    lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'excel', 'pdf', 'print'
+                    ],
+                    "aaData": tableData,
+                    columns: [
+                        { data: 'ACCION' },
+                        { data: 'REGMOVTRAF' },
+                        { data: 'DESCRIPCION' },
+                        { data: 'FECHA' },
+                        { data: 'NOCARTAPORTE' },
+                        { data: 'CARTAPORTEFISICA' },
+                        { data: 'TIPOCRUCES' },
+                        { data: 'NOMBRECLIENTE' },
+                        { data: 'numerounidad' },
+                        { data: 'ruta' },
+                        { data: 'REMITENTE' },
+                        { data: 'DESTINO' },
+                        { data: 'NOMBRECHOFER' },
+                        { data: 'NOCAJA'},
+                        { data: 'COMISIONMOV'},
+                        { data: 'HRALLEGADACTE'},
+                        { data: 'HRACARGA'},
+                        { data: 'HRASALIDACTE'},
+                        { data: 'HRALLEGADAFILA'},
+                        { data: 'HRAMODULOMEX'},
+                        { data: 'HRAMODULOMEXSALIDA'},
+                        { data: 'HRAMODULOUSA'},
+                        { data: 'HRAMODULOUSASALIDA'},
+                        { data: 'HRAENTREGACTE'},
+                        { data: 'SELLO1'},
+                        { data: 'SELLO2'},
+                        { data: 'SELLO3'},
+                        { data: 'compartido'}
+                    ]
+                });
+//table.buttons().container() .appendTo('#datatable_wrapper .col-md-6:eq(0)'); });
+
+                Swal.close();
+
+            },
+            error: function(jqXhr, textStatus, errorMessage) { // error callback
+                Swal.close();
+                Swal.fire(
+                    'Error',
+                    'Ha ocurrido un error!',
+                    'error'
+                )
+
+            }
+        });
+
+
+
+    }
+
